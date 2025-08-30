@@ -1,6 +1,12 @@
+import sys
+import os
 import streamlit as st
-from utils.parser import extract_text
-from utils.analyzer import analyze_resume
+
+# Add utils folder to sys.path so Python can find parser.py and analyzer.py
+sys.path.append(os.path.join(os.path.dirname(__file__), 'utils'))
+
+from parser import extract_text
+from analyzer import analyze_resume
 
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
 
