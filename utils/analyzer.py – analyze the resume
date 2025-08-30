@@ -1,0 +1,15 @@
+def analyze_resume(text):
+    text = text.lower()
+
+    # Example keywords (expandable)
+    keywords = ["python", "machine learning", "ai", "data", "sql"]
+    
+    found = [kw for kw in keywords if kw in text]
+    score = int(len(found) / len(keywords) * 100)
+
+    suggestions = []
+    for kw in keywords:
+        if kw not in found:
+            suggestions.append(f"Consider adding '{kw}' to your resume.")
+
+    return score, suggestions
