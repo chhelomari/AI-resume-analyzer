@@ -15,7 +15,7 @@ Run the app:
 
 Open the link in your browser and upload a resume to test it.
 
-Future ideas
-Compare resume to a job description
-Support multiple languages
+Future ideas:
+Compare resume to a job description/
+Support multiple languages/
 Add more advanced AI suggestions
