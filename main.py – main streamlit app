@@ -1,0 +1,25 @@
+import streamlit as st
+from utils.parser import extract_text
+from utils.analyzer import analyze_resume
+
+st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
+
+st.title("📄 AI Resume Analyzer")
+st.write("Upload your resume and get instant feedback.")
+
+uploaded_file = st.file_uploader("Upload Resume", type=["pdf", "docx"])
+
+if uploaded_file is not None:
+    text = extract_text(uploaded_file)
+    st.subheader("Extracted Text")
+    st.write(text[:500] + "..." if len(text) > 500 else text)
+
+    score, suggestions = analyze_resume(text)
+
+    st.subheader("ATS Score")
+    st.progress(score / 100)
+    st.write(f"Your ATS Score: **{score}%**")
+
+    st.subheader("Suggestions")
+    for s in suggestions:
+        st.write("- " + s)
